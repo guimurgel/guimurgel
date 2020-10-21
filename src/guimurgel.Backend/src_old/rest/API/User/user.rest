@@ -1,0 +1,13 @@
+
+GET http://localhost:3000/list-users
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imd1aW11cmdlbDNAZ21haWwuY29tIiwiaWF0IjoxNjAyNzIxOTgyLCJleHAiOjE2MDI3MjE5OTd9.gNTUwcTsQpJFyNnylO7m-rgI5kGxTLbJOxaB_QgZ_aE
+
+###
+POST http://localhost:3000/create-user
+Content-Type: application/json
+
+{
+  "name": "Guilherme Murgel",
+  "email": "guimurgel@gmail.com",
+  "password": "123456"
+}

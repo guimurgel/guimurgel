@@ -1,0 +1,14 @@
+//// -- LEVEL 1
+//// -- Tables and References
+
+// Creating tables
+Table sys_users as U {
+  id int [pk, increment]
+  first_name varchar(250) [not null]
+  last_name varchar(250) [not null]
+  email varchar(250) [not null, unique]
+  username varchar(250) [not null, unique]
+  password varchar(250) [not null]
+}
+
+//----------------------------------------------//

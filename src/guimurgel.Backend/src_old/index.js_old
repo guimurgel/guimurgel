@@ -1,0 +1,147 @@
+require('dotenv').config()
+require('module-alias/register')
+
+const express = require('express')
+const app = express()
+
+//Packages
+const bodyParser = require('body-parser')
+const bcrypt = require('bcrypt')
+const cors = require('cors')
+const jwt = require('jsonwebtoken')
+
+//Config
+const config = require('@/config/config')
+
+//Middleware
+const { authUser, authRole } = require('@/middleware/auth')
+
+//Routes
+const projects_router = require('@/routes/projects')
+
+//Data
+const { role, users } = require('@/data/data')
+
+//Helpers
+const { v4: uuidv4 } = require('uuid');
+
+//Variables
+const port = process.env.PORT || 3000;
+const userAuth = false
+const expiresIn = '15s'
+
+//##### Config #####
+app.use(express.json())
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: false}))
+app.use(cors({ origin: true }))
+
+//Middleware
+app.use(setUser)
+
+//Routes
+app.use('/projects', projects_router)
+
+
+//Function Middleware
+function setUser(req, res, next) {
+    const user_id = req.body.user_id
+
+    if (user_id) {
+        req.user = users.find(user => user.id === user_id)
+    }
+    next()
+}
+
+
+// ##### Default #####
+app.get('/api/', (_, res) => {
+    res.status(200).send('Express Running App!!!!');
+});
+
+// ##### Projects #####
+
+app.get('/', (req, res) => {
+    res.send('Home Page')
+})
+
+app.get('/dashboard', authUser, (req, res) => {
+    res.send('Dashboard Page')
+})
+
+app.get('/admin', authUser, authRole(role.admin), (req, res) => {
+    res.send('Admin Page')
+})
+
+// ##### Users #####
+app.get('/list-users', authenticateToken, (req, res) => {
+    res.json(users)
+})
+
+app.post('/create-user', async (req, res) => {
+    try {
+        const hashedPassword = await bcrypt.hash(req.body.password, 10)
+
+        const user = {
+            id: uuidv4(),
+            name: req.body.name,
+            email: req.body.email,
+            password: hashedPassword
+        }
+        users.push(user)
+        res.status(201).send()
+
+    } catch (error) {
+        console.log("Error - ", error)
+        res.status(500).send()
+    }
+
+})
+
+// ##### Auth #####
+app.post('/login', async (req, res) => {
+    // Authenticate User
+    const user = users.find(user => user.email === req.body.email)
+
+    if (user == null) return res.status(400).send('Cannot find user!')
+
+    try {
+        const passwords_equals = await bcrypt.compare(req.body.password, user.password)
+        if (passwords_equals) {
+            // Create JWT
+            const accessToken = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET, { expiresIn: expiresIn })
+            res.json({ accessToken: accessToken })
+        } else {
+            res.status(500).send('Not Allowed!')
+        }
+    } catch (error) {
+        console.log("Error - ", error)
+        res.status(500).send()
+    }
+})
+
+app.delete('/logout', (req, res) => {
+    res.sendStatus(204)
+})
+
+//Helpers
+function authenticateToken(req, res, next) {
+    const authHeader = req.headers['authorization']
+    const token = authHeader && authHeader.split(' ')[1]
+
+    if (!userAuth) return next()
+    if (token == null) return res.sendStatus(401)
+
+    //Has Token
+    jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, user) => {
+        //Token no longer valid
+        if (err) return res.sendStatus(403)
+        req.user = user
+        next()
+    })
+}
+
+//run
+app.listen(port, () => {
+    console.log(`Server running on port: ${port}`);
+});

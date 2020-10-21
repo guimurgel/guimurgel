@@ -1,0 +1,35 @@
+{
+  "name": "guimurgel-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "startDev": "nodemon src/index.js",
+    "startAuth": "nodemon src/server/auth_server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.0.0",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "ejs": "^3.1.5",
+    "express": "^4.17.1",
+    "express-ejs-layouts": "^2.5.0",
+    "jsonwebtoken": "^8.5.1",
+    "module-alias": "^2.2.2",
+    "mongoose": "^5.10.9",
+    "uuidv4": "^6.2.4"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.5"
+  },
+  "_moduleAliases": {
+    "~": "./",
+    "@": "./src"
+  }
+}

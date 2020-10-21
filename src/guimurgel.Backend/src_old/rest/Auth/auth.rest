@@ -1,0 +1,24 @@
+
+POST http://localhost:4000/login
+Content-Type: application/json
+
+{
+    "email": "guimurgel3@gmail.com",
+    "password": "123456"
+}
+
+###
+DELETE  http://localhost:4000/logout
+Content-Type: application/json
+
+{
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imd1aW11cmdlbDNAZ21haWwuY29tIiwiaWF0IjoxNjAyNzIxOTU4fQ.7WVh9S2ddh-xO2zd4H19N0Y1Onr_NqnSYobLqpCzepM"
+}
+
+###
+POST http://localhost:4000/token
+Content-Type: application/json
+
+{
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imd1aW11cmdlbDNAZ21haWwuY29tIiwiaWF0IjoxNjAyNzIxOTU4fQ.7WVh9S2ddh-xO2zd4H19N0Y1Onr_NqnSYobLqpCzepM"
+}
