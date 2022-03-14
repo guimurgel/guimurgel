@@ -1,0 +1,30 @@
+.Btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  width: 188px;
+  height: 50px;
+  transition: all 0.15s ease;
+  @include font-size('xs');
+
+  @include breakpoint('md-') {
+    width: 100%;
+  }
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  &--filled {
+    background-color: $bg-color-blue;
+    cursor: pointer;
+    color: white;
+  }
+
+  &--white {
+    background-color: #fff;
+    color: $text-color-dark;
+  }
+
+}

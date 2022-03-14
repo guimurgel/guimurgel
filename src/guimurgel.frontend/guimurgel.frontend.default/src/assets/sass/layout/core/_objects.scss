@@ -1,0 +1,65 @@
+// ====================================================================
+// Objects
+// ====================================================================
+
+body {
+  width: calc(100%);
+  background: #ffffff;
+  position: relative;
+  overflow-x: hidden;
+
+  @include breakpoint('md-') {
+    br {
+      // display: none;
+    }
+  }
+}
+
+ul,
+li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.Container {
+  height: 100%;
+
+  @include breakpoint('md-') {
+    padding: 0 2rem;
+  }
+}
+
+section {
+  width: 100%;
+  height: auto;
+  position: relative;
+}
+
+.wrapper {
+  overflow-x: hidden;
+}
+
+img {
+  display: block;
+  // width: 100%;
+}
+
+//Helpers
+.scroll-lock {
+  overflow: hidden;
+  -moz-overflow: hidden;
+}
+
+.under {
+  text-underline-offset: 0.1em;
+  text-decoration: underline !important;
+
+  &.blue {
+    color: $text-color-blue;
+  }
+
+  &.white {
+    color: $text-color-white;
+  }
+}

@@ -1,0 +1,478 @@
+// ====================================================================
+// Main
+// ====================================================================
+[id^='QuintoAndar'] {
+  padding-top: var(--header-height);
+}
+// #Home,
+// #News,
+// #New,
+// #Search {
+//   padding-top: var(--header-height);
+// }
+
+[id^='QuintoAndar-Home'] {
+  .Wrapper {
+    padding: 10rem 0;
+    @include breakpoint('md-') {
+      padding: 5rem 0;
+    }
+    &:first-of-type {
+      height: auto;
+    }
+  }
+  .Content__Title {
+    h1, h2, h3, h4 {
+      font-weight: $font-weight--semi-bold;
+      p {
+        font-weight: $font-weight--semi-bold;
+        line-height: 1;
+        margin: 0;
+        padding: 0;
+      }
+    }
+    h1 {
+      color: $text-color-gray;
+      @include font-size('md');
+      font-weight: $font-weight--regular;
+    }
+    h2 {
+      @include font-size('xl');
+      font-weight: $font-weight--semi-bold;
+    }
+    h3 {
+      color: $text-color-gray;
+      font-weight: $font-weight--regular;
+      @include font-size('md');
+    }
+    h4 {
+      @include font-size('lg');
+    }
+  }  
+}
+
+//## General
+
+//# Wrapper
+.Wrapper {
+  padding: 6rem 0;
+  @include breakpoint('md-') {
+    padding: 3rem 0;
+  }
+
+  &:first-of-type {
+    height: 450px;
+    @include breakpoint('md-') {
+      height: 250px;
+    }
+  }
+
+  &--blue {
+    background-color: $bg-color-blue;
+  }
+  &--purple {
+    background-color: $bg-color-purple;
+  }
+  &--lightgreen {
+    background-color: $bg-color-lightgreen;
+  }
+  &--green {
+    background-color: $bg-color-green;
+  }
+  &--darkgreen {
+    background-color: $bg-color-darkgreen;
+  }
+  &--gray {
+    background-color: $bg-color-gray;
+  }
+  &--light-blue {
+    background-color: $bg-color-light-blue;
+  }
+
+  &--banner {
+    height: 500px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    @include breakpoint('md-') {
+      height: 400px;
+      background-position: 90%;
+    }
+
+    .Btn {
+      margin-top: 2rem;
+    }
+  }
+
+  &--bg {
+    padding: 0 !important;
+    .Content__Body__Information {
+      padding: 10rem 0;
+
+      @include breakpoint('md-') {
+        padding: 4rem 0;
+      }
+    }
+  }
+
+  .Container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+
+    & > div {
+      width: 100%;
+      flex-grow: 1;
+      flex-basis: 0;
+      position: relative;
+    }
+
+    &--row {
+      flex-direction: row;
+
+      @include breakpoint('md-') {
+        flex-direction: column;
+      }
+    }
+  }
+}
+
+//# Content Title
+.Content__Title {
+  position: relative;
+  z-index: 1;
+  h1, h2, h3, h4 {
+    color: $text-color-dark;
+    margin-bottom: 2rem;
+    font-weight: $font-weight--semi-bold;
+    p {
+      line-height: 1.3;
+      margin: 0;
+      padding: 0;
+    }
+    @include breakpoint('md-') {
+      br {
+        display: none;
+      }
+    }
+  }
+
+  h1 {
+    @include font-size('xl');
+  }
+  h2 {
+    @include font-size('md');
+  }
+  h3 {
+    @include font-size('lg');
+  }
+  h4 {
+    @include font-size('sm');
+  }
+
+  &--center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+  }
+
+  &--middle-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+
+    text-align: left;
+  }
+
+  &--white {
+    h1, h2, h3, h4 {
+      color: $text-color-white !important;
+    }
+  }
+
+  .Btn {
+    // font-family: 'QuintoAndarTextos';
+  }
+  
+}
+
+.Content__Image {
+  position: absolute;
+  height: calc(100% + 12rem);
+  bottom: -6rem;
+  
+  @media (min-width: 1px) and (max-width: 769px) {
+    height: calc(100% + 6rem);
+    bottom: -3rem;
+    right: -35%;
+    opacity: 0.25;
+  }
+  @media (min-width: 769px) and (max-width: 960px) {
+    right: -35%;
+    opacity: 0.25;
+  }
+  @media (min-width: 960px) and (max-width: 1220px) {
+    right: -60%;
+  }
+  @media (min-width: 1220px) and (max-width: 1440px) {
+    right: -35%;
+  }
+  @media (min-width: 1440px) and (max-width: 1920px) {
+    right: -25%;
+  }
+  @media (min-width: 1920px) {
+    right: -20%;
+  }
+}
+
+//# Content Body
+.Content__Body {
+  display: flex;
+  flex-direction: row;
+
+  @include breakpoint('md-') {
+    flex-direction: column;
+  }
+
+  & > div {
+    flex-grow: 1;
+    flex-basis: 0;
+    position: relative;
+  }
+
+  &__Information {
+    display: flex;
+    flex-direction: column;
+
+    @include breakpoint('md-') {
+      margin-bottom: 2rem;
+    }
+
+    &--white {
+      .Content__Body__Title {
+        span {
+          color: $text-color-white;
+        }
+      }
+      .Content__Body__Text {
+        p {
+          color: $text-color-white;
+        }
+      }
+    }
+  }
+
+  &__Title {
+    span {
+      display: block;
+      color: $text-color-dark;
+      margin-bottom: 2rem;
+      
+      @include font-size('md');
+    }
+  }
+
+  &__Text {
+    p {
+      // font-family: 'QuintoAndarTextos';
+      display: block;
+      @include font-size('sm');
+    }
+  }
+
+  &__Box {
+    margin-top: 6rem;
+  }
+
+  &__Media {
+    &__Image {
+      height: 100%;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+
+    &__Iframe {
+      position: relative;
+      padding-bottom: 56.25%;
+    }
+
+    iframe {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+    }
+
+  }
+}
+
+//Assets
+.Assets {
+  position: relative;
+
+  &__U {
+    position: absolute;
+    display: block;
+    top: -6rem;
+    left: -15rem;
+    svg {
+      width: 130px;
+    }
+
+    @include breakpoint('lg-') {
+      top: -6rem;
+      left: -1rem;
+      svg {
+        width: 90px;
+      }
+    }
+    @include breakpoint('md-') {
+      top: -6rem;
+      left: -1rem;
+      svg {
+        width: 50px;
+      }
+    }
+  }
+
+  &__Arrow {
+  
+    position: absolute;
+    display: block;
+    top: calc(100% + 15px);
+    left: calc(100% - 114px);
+    svg {
+      fill: #fa5357;
+    }       
+
+    @include breakpoint('md-') {
+      top: calc(100% - 15px);
+      left: calc(100% - 70px);
+      svg {
+        width: 35px;
+      }
+    }
+  }
+
+  &__Worm {
+    position: absolute;
+    display: block;
+    top: -20px;
+    left: -90px;
+    svg {
+      fill: #f7cc36;
+    }
+
+    @include breakpoint('md-') {
+      left: 20px;
+      top: -60px;
+      svg {
+        width: 70px;
+      }
+    }
+
+    &--main {
+      left: calc(100% - 30px);
+      @include breakpoint('md-') {
+        left: calc(100% - 100px);
+        top: calc(100% - 50px);
+      }
+    }
+    &--contact {
+      left: -55px;
+      top: 80px;
+      @include breakpoint('md-') {
+        left: calc(100% - 100px);
+        top: calc(100% - 20px);
+      }
+    }
+
+
+  }
+
+  &__T {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    top: calc(100% + 35px);
+    left: calc(100% - 30px);
+
+    @include breakpoint('md-') {
+      top: 100%;
+      left: 10px;
+      svg {
+        width: 50px;
+      }
+    }
+  }
+
+  &__Circle {
+    position: absolute;
+    display: block;
+    top: -14rem;
+    left: -6rem;
+    svg {
+      width: 200px;
+    }
+    @include breakpoint('md-') {
+      top: -14rem;
+      left: -6rem;
+      svg {
+        width: 100px;
+      }
+    }
+  }
+  
+}
+
+.Text {
+  &--pr {
+    padding-right: 10rem;
+    @include breakpoint('lg-') {
+      padding-right: 7rem;
+    }
+    @include breakpoint('md-') {
+      padding-right: 0;
+    }
+  }
+  &--pl {
+    padding-left: 10rem;
+    @include breakpoint('lg-') {
+      padding-left: 7rem;
+    }
+    @include breakpoint('md-') {
+      padding-left: 0;
+    }
+  }
+}
+
+//Arrow
+.Arrow__Custom {
+  position: relative;
+  &::after {
+      content: '';
+      position: relative;
+      color: $bg-color-black;
+      background-image: url('../img/icons/arrow-right.svg');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: auto;
+      padding: 0 0 0 2rem;
+      margin-left: 2rem;
+  }
+
+  &--white {
+    &::after {
+      filter: brightness(0) invert(1);
+    }
+  }
+}

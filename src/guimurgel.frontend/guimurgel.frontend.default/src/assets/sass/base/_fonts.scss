@@ -1,0 +1,30 @@
+// ====================================================================
+// Fonts
+// ====================================================================
+
+// -------------------------------------
+// Caminhos
+// -------------------------------------
+
+$image-path: '../img';			// Caminho das imagens
+$font-path: '../fonts';			// Caminho das fontes
+
+
+
+
+// -------------------------------------
+// Roboto Regular
+// -------------------------------------
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+
+// -------------------------------------
+// Padrao
+// -------------------------------------
+$font-family--primary    : 'Roboto', sans-serif;
+$headers-font-family     : 'Roboto', sans-serif;
+$p-font-family           : 'Roboto', sans-serif;
+$span-font-family        : 'Roboto', sans-serif;
+
+$font-family--secondary  : 'Roboto', sans-serif;
+

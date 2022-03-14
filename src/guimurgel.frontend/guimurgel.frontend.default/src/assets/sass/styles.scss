@@ -1,0 +1,49 @@
+// ====================================================================
+// Imports
+// ====================================================================
+
+// -------------------------------------
+// COMPASS
+// -------------------------------------
+//@import "compass";
+
+// -------------------------------------
+// BASE
+// -------------------------------------
+@import "base/_functions";
+@import "base/_mixins";
+@import "base/_colors";
+@import "base/_fonts";
+@import "base/_settings";
+@import "base/_variables";
+@import "base//reset/_reset";
+@import "base/_base";
+
+// -------------------------------------
+// MODULES
+// -------------------------------------
+@import "modules/_animate";
+@import "modules/_button";
+@import "modules/_form";
+@import "modules/_modal";
+
+// -------------------------------------
+// ASSETS
+// -------------------------------------
+
+// -------------------------------------
+// VENDOR
+// -------------------------------------
+@import "vendor/slick/_slick";
+
+// -------------------------------------
+// LAYOUT
+// -------------------------------------
+// CORE
+@import "layout/core/_header";
+@import "layout/core/_footer";
+@import "layout/core/_objects";
+// SECTIONS
+@import "layout/sections/_main";
+@import "layout/sections/_home";
+@import "layout/sections/_news";

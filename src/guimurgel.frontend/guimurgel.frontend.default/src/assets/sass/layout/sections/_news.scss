@@ -1,0 +1,127 @@
+#QuintoAndar-News {
+
+  .Wrapper--banner {
+    background-image: url('/assets/img/content/news/news-bg.png');
+  }
+
+  .News__Content {
+    display: flex;
+    flex-direction: row;
+
+    @include breakpoint('md-') {
+      flex-direction: column;
+    }
+
+    & > div {
+      flex-grow: 1;
+      flex-basis: 0;
+      position: relative;
+    }
+  }
+
+  .PostSearch {
+    margin-right: 2rem;
+
+    @include breakpoint('md-') {
+      margin-right: 0;
+      margin-bottom: 3rem;
+      padding-bottom: 3rem;
+      border-bottom: 1px solid #bbb;
+    }
+    h3 {
+      color: $text-color-dark;
+      margin-bottom: 3rem;
+      @include font-size('lg');
+      font-weight: $font-weight--semi-bold;
+    }
+  }
+
+  //Cards
+  .Cards {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    row-gap: 3em;
+    column-gap: 3rem;
+    margin-top: 6rem;
+
+    @include breakpoint('md-') {
+      flex-direction: column;
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .Card {
+   
+      width: calc(100% / 3 - 2rem) ;
+      // border-radius: 2rem;
+      background-color: white;
+      // box-shadow: 0 0px 5px 2px rgba(0, 0 ,0 ,0.16);
+      transition: transform 0.5s ease-in-out;
+
+      &:hover {
+        opacity: 0.9;
+      }
+
+      @include breakpoint('lg-') {
+        width: calc(100% / 2 - 2rem) ;
+      }
+
+      @include breakpoint('md-') {
+        width: 100%;
+        margin-bottom: 2rem;
+      }
+
+      a {
+        width: 100%;
+        height: 100%;
+      }
+
+      &__Image {
+        width: 100%;
+        padding-bottom: 56.25%;
+        // border-radius: 2rem 2rem 0 0;
+
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+
+        img {
+          border-radius: 2rem 2rem 0 0;
+          width: 100%;
+        }
+
+      }
+      &__Body {
+        display: flex;
+        flex-direction: column;
+        padding: 3rem 2rem;
+
+      }
+      &__Tag {
+        color: $text-color-dark;
+        @include font-size('md');
+        margin-bottom: 0.5rem;
+        font-weight: $font-weight--semi-bold;
+      }
+      &__Title {
+        @include font-size('md');
+        margin-bottom: 1rem;
+        font-weight: $font-weight--semi-bold;
+
+        &--blue {
+          color: $text-color-dark;
+        }
+      }
+      &__Text {
+        p {
+          // font-family: 'QuintoAndarTextos';
+          color: $text-color-dark;
+          @include font-size('xs');
+        }
+      }
+    }
+
+  }
+}

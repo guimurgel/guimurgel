@@ -1,0 +1,340 @@
+#QuintoAndar-Home {
+  #Main {
+    @include breakpoint('lg') {
+      padding: 15rem 0;
+     }
+    .Main {
+      &__List {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 10rem;
+        margin-bottom: 3rem;
+        @include breakpoint('md-') {
+          margin-top: 3rem;
+          flex-direction: column;
+          justify-content: center;
+        }
+
+        &__Item {
+          display: flex;
+          flex-direction: column;
+          // justify-content: space-between;
+          align-items: center;
+          width: 100%;
+          max-width: 300px;
+          height: auto;
+          text-align: center;
+
+          @include breakpoint('md-') {
+            width: 100%;
+            height: auto;
+            margin-bottom: 5rem;
+
+            &:last-of-type {
+              margin-bottom: 0;
+            }
+          }
+          > span {
+            font-weight: $font-weight--semi-bold;
+          }
+          span {
+            @include font-size('md');
+          }
+          p {
+            // font-family: 'QuintoAndarTextos';
+            margin-bottom: 1rem;
+            @include font-size('xs');
+          }
+          a {
+            display: inline-flex;
+            align-items: center;
+            height: 100%;
+            span {
+              margin-bottom: 0;
+              @include font-size('xs');
+            }
+
+            img {
+              width: 18px;
+              margin-left: 1rem;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  #AboutUs {
+    z-index: 1;
+
+    //General
+    .Content__Body {
+      &__Title {
+        span {
+          font-weight: $font-weight--semi-bold;
+
+          @include breakpoint('lg') {
+            font-size: 3rem;
+          }
+        }
+      }
+
+    }
+
+    .Wrapper {
+      @include breakpoint('lg') {
+       padding: 7.5rem 0;
+      }
+    }
+
+    .Wrapper--banner {
+      background-color: $bg-color-purple;
+    }
+
+    &__Video {
+      .Content__Body {
+        flex-direction: row-reverse;
+        @include breakpoint('md-') {
+          flex-direction: column;
+        }
+      }
+    }
+
+    //Celphone
+    &__Featured {
+      .Content__Body {
+        @include breakpoint('md-') {
+          flex-direction: row;
+        }
+
+        &__Information {
+          @include breakpoint('md-') {
+            flex-grow: 2;
+            padding-right: 2rem;
+          }
+          @include breakpoint('sm-') {
+            padding-right: 0;
+          }
+        }
+
+        &__Media {
+          @include breakpoint('sm-') {
+            display: none;
+          }
+
+          &_Image {
+            position: absolute;
+            width: 100%;
+            height: calc(100% + 20rem);
+            background-image: url('../img/content/home/about-us-celphone.png');
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: right;
+            bottom: -7.5rem;
+      
+            @include breakpoint('md-') {
+              position: relative;
+              left: initial;
+              top: initial;
+              bottom: -5rem;
+              height: calc(100%);
+            }
+
+            @include breakpoint('sm-') {
+              bottom: 0;
+              height: calc(100%);
+            }
+      
+          }
+        }
+      }
+    }
+  }
+
+  #KnowMore {
+    .KnowMore {
+      &__List {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        row-gap: 3rem;
+        column-gap: 3rem;
+        // padding-bottom: 3rem;
+        margin-top: 6rem;
+        @include breakpoint('md-') {
+          flex-direction: column;
+          justify-content: center;
+          row-gap: 2rem;
+          margin-top: 3rem;
+        }
+
+        &__Item {
+          width: calc(100% / 3 - 4rem);
+
+          @include breakpoint('lg-') {
+            width: calc(100% / 2 - 4rem);
+          }
+
+          @include breakpoint('md-') {
+            width: 100%;
+            border-bottom: 1px solid #c4c4c4;
+          }
+          @include breakpoint('sm-') {
+          }
+
+          span {
+            color: $text-color-dark;
+            @include font-size('sm');
+          }
+
+          strong {
+            @include font-size('sm');
+          }
+
+          p {
+            // font-family: 'QuintoAndarTextos';
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+            @include font-size('xs');
+          }
+
+          &--number {
+            display: block;
+            color: $text-color-blue !important;
+            line-height: 100%;
+            @include font-size('lg', 'important');
+          }
+        }
+      }
+    }
+  }
+
+  #Timeline {
+    padding-bottom: 0;
+
+    h2 {
+      @include breakpoint('md-') {
+        font-size: 3.5rem;
+      }
+    }
+  }
+
+  #Contact {
+    z-index: 1;
+    @include breakpoint('md-') {
+      padding-top: 0;
+    }
+
+    .Wrapper {
+      padding: 0 !important;
+    }
+
+    .Content__Body {
+      &__Title {
+        span {
+          @include font-size('md');
+          margin-bottom: 0;
+        }
+      }
+
+      &__Text {
+        p {
+          // font-family: 'QuintoAndar';
+          @include font-size('xl');
+          font-weight: $font-weight--semi-bold;
+          line-height: 100%;
+          padding-right: 33%;
+
+          @include breakpoint('md-') {
+            padding-right: initial;
+          }
+        }
+      }
+    }
+
+    .Container {
+   
+      @include breakpoint('md') {
+        position: initial;
+        justify-content: flex-start;
+      }
+
+      @include breakpoint('md-') {
+        flex-direction: column-reverse;
+      }
+    }
+
+    .Content__Body__Box {
+      @include breakpoint('sm-') {
+        margin-top: 2rem;
+      }
+    }
+
+    .Content__Body__Information {
+
+      @include breakpoint('lg') {
+        flex-grow: 0;
+        flex-basis: auto;
+        width: 50%;
+      }
+
+      @include breakpoint('md-') {
+        margin-bottom: 0;
+      }
+    }
+
+    .Content__Body__Media {
+        position: absolute;
+        height: 100%;
+        left: calc(50%);
+        width: 50%;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center center;
+
+        @include breakpoint('md-') {
+          width: 100%;
+          position: relative;
+          top: -30px;
+          left: 0;
+          width: calc(100% + 4rem);
+          min-height: 300px;
+        }
+    }
+
+    ul.Contact__List {
+      column-count: 2;
+
+      @include breakpoint('md-') {
+        column-count: 1;
+      }
+      li {
+        color: white;
+
+        margin-bottom: 5rem;
+
+        @include breakpoint('sm-') {
+          margin-bottom: 2rem;
+        }
+
+        p {
+          @include font-size('md');
+          margin-bottom: 0;
+        }
+
+        span {
+          display: block;
+          @include font-size('xs');
+        }
+        a {
+          // font-family: 'QuintoAndarTextos';
+          display: block;
+          @include font-size('xs');
+        }
+      }
+    }
+  }
+}
